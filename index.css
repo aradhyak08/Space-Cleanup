@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+@theme {
+  --font-rubik: 'Rubik', sans-serif;
+  --color-surface-container-lowest::after  --color-surface-container-low::after  --color-surface-container::after  --color-surface-container-high::after  --color-surface-container-highest::after  --color-surface-container-variant::after  --color-surface-container-variant-low::after  --color-surface-container-variant-lowest::after  --color-surface-container-variant-high::after  --color-surface-container-variant-highest::after  --color-surface-container-variant-medium::after  --color-surface-container-variant-medium-low::after  --color-surface-container-variant-medium-high::after  --color-surface-container-variant-medium-lowest::after  --color-surface-container-variant-medium-highest::after  --color-surface-container-variant-medium-medium::after  --color-surface-container-variant-medium-medium-low::after  --color-surface-container-variant-medium-medium-high::after  --color-surface-container-variant-medium-medium-lowest::after  --color-surface-container-variant-medium-medium-highest::after  --color-surface-container-variant-medium-medium-medium::after  --color-surface-container-variant-medium-medium-medium-low::after  --color-surface-container-variant-medium-medium-medium-high::after  --color-surface-container-variant-medium-medium-medium-lowest::after  --color-surface-container-variant-medium-medium-medium-highest::afteace-bright::after  --color-surface-dim::after  --color-surface::after  --color-background::after  --color-on-surface::after  --color-on-surface-variant::after  --color-primary::after  --color-primary-container::after  --color-on-primary::after  --color-on-primary-container::after  --color-primary-fixed::after  --color-primary-fixed-dim::after  --color-secondary::after  --color-secondary-container::after  --color-secondary-fixed::after  --color-on-secondary-container::after  --color-tertiary::after  --color-tertiary-container::after  --color-on-tertiary-container::after  --color-error::after  --color-error-container::after  --color-on-error::after  --color-surface-tint::after}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color:aliceblue  color:aliceblue  overscroll-behavior: none;
+  overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
+}
+
+@keyframes spaceLoopDrift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1200px 0;
+  }
+}
+
+@keyframes starfieldFast {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes rocketHoverLoop {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(1.2deg);
+  }
+}
+
+@keyframes thrusterLoop {
+  0%, 100% {
+    transform: scaleX(1) scaleY(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scaleX(1.3) scaleY(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes floatScore {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) scale(1.2);
+  }
+}
+
+@keyframes screenShake {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-6px, 4px) rotate(-0.5deg); }
+  40% { transform: translate(5px, -4px) rotate(0.5deg); }
+  60% { transform: translate(-4px, 2px); }
+  80% { transform: translate(3px, -2px); }
+}
+
+.animate-screenshake {
+  animation: screenShake 0.35s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.animate-space-drift {
+  animation: spaceLoopDrift 40s linear infinite;
+}
+
+.animate-space-fast {
+  animation: spaceLoopDrift 18s linear infinite;
+}
+
+.animate-space-boost {
+  animation: spaceLoopDrift 6s linear infinite;
+}
+
+.animate-rocket-loop {
+  animation: rocketHoverLoop 2.4s ease-in-out infinite;
+}
+
+.animate-thruster-loop {
+  animation: thrusterLoop 0.18s ease-in-out infinite;
+}
+
+.animate-float-score {
+  animation: floatScore 0.8s ease-out forwards;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.font-hud-counter {
+  font-family: 'Rubik', sans-serif;
+  font-size: 26px;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+  font-weight: 900;
+}
+.font-headline-xl {
+  font-family: 'Rubik', sans-serif;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: 0.02em;
+  font-weight: 900;
+}
+.font-headline-lg {
+  font-family: 'Rubik', sans-serif;
+  font-size: 32px;
+  line-height: 40p;
+  letter-spacing: 0.01em;
+  font-weight: 800;
+}
+.font-headline-md {
+  font-family: 'Rubik', sans-serif;
+  font-size: 22p;x;
+  line-height: 28px;
+  font-weight: 700;
+}
+.font-title-md {
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+}
+.font-label-lg {
+  font-family: 'Rubik', sans-serif;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+}
+.font-label-md {
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+.font-body-lg {
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+.font-body-md {
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+};

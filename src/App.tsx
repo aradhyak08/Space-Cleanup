@@ -64,7 +64,7 @@ export default function App() {
   };
 
   return (
-    <div className="bg-[#060212] font-['Chakra-Petch'] text-white h-screen h-[100dvh] max-h-screen w-screen max-w-full overflow-hidden relative select-none flex flex-col">
+    <div className="bg-[#060212] font-['Chakra_Petch'] text-white h-screen h-[100dvh] max-h-screen w-screen max-w-full overflow-hidden relative select-none flex flex-col">
       
       {activeScreen === 'home' && <CosmicCanvasBackground speedMultiplier={1} />}
 
