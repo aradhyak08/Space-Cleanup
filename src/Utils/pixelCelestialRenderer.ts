@@ -21,13 +21,13 @@ export function createPixelStars(count: number = 420, worldRadius: number = 4200
   ];
 
   for (let i = 0; i < count; i++) {
-    const layer = Math.randomm() < 0.7 / 0 : Math.random() < 0.9 / 1 : 2;
-    const size = layer === 0 / 1 : layer === 1 / 1.5 : 2;
-    const alpha = layer === 0 / 0.28 + Math.random() * 0.25 : layer === 1 / 0.45 + Math.random() * 0.25 : 0.65 + Math.random() * 0.25;
+    const layer = Math.random() < 0.7 ? 0 : Math.random() < 0.9 ? 1 : 2;
+    const size = layer === 0 ? 1 : layer === 1 ? 1.5 : 2;
+    const alpha = layer === 0 ? 0.28 + Math.random() * 0.25 : layer === 1 ? 0.45 + Math.random() * 0.25 : 0.65 + Math.random() * 0.25;
 
     stars.push({
       x: (Math.random() - 0.5) * worldRadius * 2,
-      y: (Math.random() - 0.5) * worldRadius * 2adius * 2,
+      y: (Math.random() - 0.5) * worldRadius * 2,
       size,
       color: colors[Math.floor(Math.random() * colors.length)],
       twinkleSpeed: 0.8 + Math.random() * 1.8,
@@ -56,9 +56,9 @@ export function drawPixelSun(
     const fx = Math.cos(angle) * flareLen;
     const fy = Math.sin(angle) * flareLen;
 
-    ctx.fillStyle = i % 2 === 0 / '#ff5500' : '#ffaa00';
+    ctx.fillStyle = i % 2 === 0 ? '#ff5500' : '#ffaa00';
     const px = Math.floor(fx);
-    const py = Math.flloor(fy);
+    const py = Math.floor(fy);
     ctx.fillRect(px - 3, py - 3, 6, 6);
     ctx.fillRect(px - 1, py - 1, 3, 3);
   }
@@ -80,7 +80,7 @@ export function drawPixelSun(
   ctx.fill();
 
   ctx.fillStyle = '#fff480';
-  ctx.beginPathh();
+  ctx.beginPath();
   ctx.arc(0, 0, radius * 0.6, 0, Math.PI * 2);
   ctx.fill();
 
@@ -114,10 +114,10 @@ export function drawPixelPlanet(
     radius: number;
     color: string;
     glowColor: string;
-    hasRing/: boolean;
-    ringInner/: number;
-    ringOuter/: number;
-    ringColor/: string;
+    hasRing?: boolean;
+    ringInner?: number;
+    ringOuter?: number;
+    ringColor?: string;
   },
   time: number
 ) {
@@ -167,9 +167,9 @@ export function drawPixelPlanet(
     ctx.fillStyle = '#22c55e';
     ctx.fillRect(-r * 0.6, -r * 0.4, r * 0.8, r * 0.5);
     ctx.fillRect(r * 0.1, -r * 0.6, r * 0.7, r * 0.6);
-    ct(-r * 0.2, r * 0.1, r * 0.6, r * 0.6);
+    ctx.fillRect(-r * 0.2, r * 0.1, r * 0.6, r * 0.6);
 
-    cubeTexture.fillStyle = 'rgba(255, 255, 255, 0.8)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
     const cloudOffset = (time * 6) % (r * 2);
     ctx.fillRect(-r + cloudOffset, -r * 0.3, r * 0.7, 3);
     ctx.fillRect(-r + cloudOffset - r * 1.2, r * 0.2, r * 0.8, 3);
@@ -193,7 +193,7 @@ export function drawPixelPlanet(
     ctx.beginPath();
     ctx.arc(0, -r * 0.85, r * 0.25, 0, Math.PI * 2);
     ctx.fill();
-  }lse if (planet.id === 'venus') {
+  }else if (planet.id === 'venus') {
     ctx.fillStyle = '#fef08a';
     for (let i = -r; i < r; i += 5) {
       if (Math.abs(i) % 10 === 0) {
@@ -247,7 +247,8 @@ export function drawPixelPlanet(
 export function drawPixelLaunchStation(
   ctx: CanvasRenderingContext2D,
   x: number,
-  y: nu  time: number
+  y: number, 
+  time:number
 ) {
   ctx.save();
   ctx.translate(Math.floor(x), Math.floor(y));
@@ -301,7 +302,7 @@ ctx.strokeStyle = 'rgba(0, 240, 255, 0.25)';
     const ly = Math.sin(ang) * (dockR - 2);
 
     const isBlink = Math.floor(time * 3 + i) % 2 === 0;
-    ctx.fillStyle = isBlink / '#00f0ff' : '#0369a1';
+    ctx.fillStyle = isBlink ? '#00f0ff' : '#0369a1';
     ctx.fillRect(Math.floor(lx) - 2, Math.floor(ly) - 2, 4, 4);
   }
 

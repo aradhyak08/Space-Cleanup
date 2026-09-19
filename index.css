@@ -2,7 +2,34 @@
 
 @theme {
   --font-rubik: 'Rubik', sans-serif;
-  --color-surface-container-lowest::after  --color-surface-container-low::after  --color-surface-container::after  --color-surface-container-high::after  --color-surface-container-highest::after  --color-surface-container-variant::after  --color-surface-container-variant-low::after  --color-surface-container-variant-lowest::after  --color-surface-container-variant-high::after  --color-surface-container-variant-highest::after  --color-surface-container-variant-medium::after  --color-surface-container-variant-medium-low::after  --color-surface-container-variant-medium-high::after  --color-surface-container-variant-medium-lowest::after  --color-surface-container-variant-medium-highest::after  --color-surface-container-variant-medium-medium::after  --color-surface-container-variant-medium-medium-low::after  --color-surface-container-variant-medium-medium-high::after  --color-surface-container-variant-medium-medium-lowest::after  --color-surface-container-variant-medium-medium-highest::after  --color-surface-container-variant-medium-medium-medium::after  --color-surface-container-variant-medium-medium-medium-low::after  --color-surface-container-variant-medium-medium-medium-high::after  --color-surface-container-variant-medium-medium-medium-lowest::after  --color-surface-container-variant-medium-medium-medium-highest::afteace-bright::after  --color-surface-dim::after  --color-surface::after  --color-background::after  --color-on-surface::after  --color-on-surface-variant::after  --color-primary::after  --color-primary-container::after  --color-on-primary::after  --color-on-primary-container::after  --color-primary-fixed::after  --color-primary-fixed-dim::after  --color-secondary::after  --color-secondary-container::after  --color-secondary-fixed::after  --color-on-secondary-container::after  --color-tertiary::after  --color-tertiary-container::after  --color-on-tertiary-container::after  --color-error::after  --color-error-container::after  --color-on-error::after  --color-surface-tint::after}
+  --color-surface-container-lowest: #100532;  
+  --color-surface-container-low: #1d1440;
+  --color-surface-container: #221844; 
+  --color-surface-container-high: #2c234f;  
+  --color-surface-container-highest: #372e5b;
+  --color-surface-bright: #3c325f; 
+  --color-surface-dim: #150a37; 
+  --color-surface: #150a37; 
+  --color-background: #150a37; 
+  --color-on-surface: #e7deff;  
+  --color-on-surface-variant: #d5c4ab;  
+  --color-primary: #412d00; 
+  --color-primary-container: #ffb800;  
+  --color-on-primary: #412d00; 
+  --color-on-primary-container: #6d4c00;  
+  --color-primary-fixed: #ffdea8; 
+  --color-primary-fixed-dim: #ffba20;
+  --color-secondary: #d3fbff; 
+  --color-secondary-container: #00eefc;  
+  --color-secondary-fixed: #7df4ff; 
+  --color-on-secondary-container: #00686f;
+  --color-tertiary: #ffaec6;  
+  --color-tertiary-container: #ffaec6;  
+  --color-on-tertiary-container: #a10055;  
+  --color-error: #ffb4ab;  
+  --color-error-container: #93000a; 
+  --color-on-error: #690005;
+  --color-surface-tint: #ffba20;
 
 body {
   font-family: 'Rubik', sans-serif;
@@ -161,4 +188,4 @@ body {
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
-};
+}

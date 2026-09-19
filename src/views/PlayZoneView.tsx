@@ -12,7 +12,7 @@ import {
   Heart,
 } from 'lucide-react';
 import { soundManager } from '../utils/audio';
-import { GameOverModal } from '../components/GameOverModal';
+import { GameOverModal } from '../components/GameOverModal.tsx';
 import { PauseMissionModal } from '../components/PauseMissionModal';
 import { GameState, ActiveControlsState } from '../types/gameEngine';
 import { createInitialGameState, resetGameState } from '../game/gameInit';
@@ -38,7 +38,7 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
   const [score, setScore] = useState(initialScore);
   const [highScore, setHighScore] = useState(() => {
     try {
-      return parseInt(localStorage.getItem('space-cleanup-high-score') || '0', 10);
+      return parseInt(localStorage.getItem('space_cleanup_high_score') || '0', 10);
     } catch {
       return 0;
     }
@@ -136,7 +136,7 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
       }
       if (k === 's' || e.key === 'ArrowDown') {
         keys.s = keys.arrowDown = true;
-        setActiveControls((prev) => ({ ...prevv, down: true }));
+        setActiveControls((prev) => ({ ...prev, down: true }));
       }
       if (k === 'a' || e.key === 'ArrowLeft') {
         keys.a = keys.arrowLeft = true;
@@ -330,7 +330,8 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
           {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
         </button>
 
-        <button         onClick={() => setIsPaused(true)}
+        <button         
+          onClick={() => setIsPaused(true)}
           className="w-8 h-8 flex items-center justify-center text-white/70 hover:text-white bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 backdrop-blur-md rounded-lg transition-colors cursor-pointer"
           title="Pause"
         >
@@ -338,29 +339,34 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
         </button>
       </div>
       <div className="absolute top-3 left-1/2 -translate-x-1/2 z-30 hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 backdrop-blur-md select-none pointer-events-none text-[8px] font-mono tracking-widest text-slate-300/70">
-        <span>NAV: [W/A/D]</span>        <span className="text-white/20">•</span>        <span>BRAKE: [S]</span>
+        <span>NAV: [W/A/D]</span>        
+        <span className="text-white/20">•</span>        
+        <span>BRAKE: [S]</span>
         <span className="text-white/20">•</span>        <span>FIRE: [SPACE]</span>        <span className="text-white/20">•</span>        <span>BOOST: [SHIFT]</span>      </div>
 
       <div className="absolute top-3 right-4 z-30 flex items-center gap-4 select-none pointer-events-none">
         <div className="flex items-center gap-1">
-          {Array.from({ length: 3 }).map((-, idx) => (
+          {Array.from({ length: 3 }).map((_, idx) => (
             <Heart
               key={idx}
               size={14}
               className={`transition-all duration-150 ${
                 idx < hitChances
-                  / 'fill-red-500 text-red-500 drop-shadow-[0-0-6px-rgba(239,68,68,0.7)]'
+                  ? 'fill-red-500 text-red-500 drop-shadow-[0_0_6px_rgba(239,68,68,0.7)]'
                   : 'fill-transparent text-white/20 stroke-[1.5]'
               }`}
             />
           ))}
         </div>
-        <div className="font-['Orbitron'] font-black text-sm sm:text-base text-[#ffcc00] tracking-wider drop-shadow-[0-2px-4px-rgba(0,0,0,0.9)]">
+
+        <div className="font-['Orbitron'] font-black text-sm sm:text-base text-[#ffcc00] tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
           {score.toLocaleString()}
-        </div>      </div>
+        </div>      
+      </div>
 
       <div className="absolute bottom-5 left-5 z-30 flex items-center gap-3 pointer-events-auto select-none">
-        <GamepadButton          id="btn-fire-action"
+        <button          
+          id="btn-fire-action"
           onPointerDown={(e) => {
             e.stopPropagation();
             handleFirePress(true);
@@ -372,23 +378,26 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
           onPointerLeave={() => handleFirePress(false)}
           onPointerCancel={() => handleFirePress(false)}
           className={`w-15 h-15 sm:w-16 sm:h-16 rounded-full flex flex-col items-center justify-center transition-all duration-75 select-none cursor-pointer backdrop-blur-sm border ${
-            activeControls.fire
-              / 'border-white/35 bg-white/20 text-white scale-95'
+            activeControls.fire 
+              ? 'border-white/35 bg-white/20 text-white scale-95'
               : 'border-white/10 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/20 text-white/70 hover:text-white/90'
           }`}
           title="Fire Plasma Bolt (Space)"
         >
-          <Flame            size={20}
-            className={activeControls.fire / 'text-white' : 'text-white/75'}
+          <Flame            
+            size={20}
+            className={activeControls.fire ? 'text-white' : 'text-white/75'}
           />
           <span className="font-['Orbitron'] font-bold text-[9px] tracking-wider mt-0.5">
             FIRE
           </span>
           <span className="font-mono text-[7px] text-white/40 leading-none">
             SPACE
-          </span>        </button>
+          </span>        
+        </button>
 
-        <GamepadButton          id="btn-boost-action"
+        <button          
+          id="btn-boost-action"
           onPointerDown={(e) => {
             e.stopPropagation();
             handleBoostPress(true);
@@ -402,14 +411,14 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
           }
           className={`w-15 h-15 sm:w-16 sm:h-16 rounded-full flex flex-col items-center justify-center transition-all duration-75 select-none cursor-pointer backdrop-blur-sm border ${
             activeControls.boost
-              / 'border-white/35 bg-white/20 text-white scale-95'
+              ? 'border-white/35 bg-white/20 text-white scale-95'
               : 'border-white/10 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/20 text-white/70 hover:text-white/90'
           }`}
         title="Nitro Boost (Shift)"
         >
           <Zap
             size={20}
-            className={activeControls.boost / 'text-white' : 'text-white/75'}
+            className={activeControls.boost ? 'text-white' : 'text-white/75'}
           />
           <span className="font-['Orbitron'] font-bold text-[9px] tracking-wider mt-0.5">
             BOOST
@@ -421,7 +430,7 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
       </div>
 
       <div className="absolute bottom-5 right-5 z-30 pointer-events-auto select-none">
-        <div className="flex flex-col items-center gap-1"ame="flex flex-col items-center gap-2">
+        <div className="flex flex-col items-center gap-2">
           <button
             id="dpad-up"
             onPointerDown={(e) => {
@@ -465,7 +474,7 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
               onPointerCancel={() => handleDirectionPress('left', false)}
               className={`w-13 h-13 rounded-full flex flex-col items-center justify-center transition-all duration-75 select-none cursor-pointer backdrop-blur-sm border ${
                 activeControls.left
-                  / 'border-white/35 bg-white/20 text-white scale-95'
+                  ? 'border-white/35 bg-white/20 text-white scale-95'
                   : 'border-white/10 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/20 text-white/70 hover:text-white/90'
               }`}
               title="Turn Left (A / ←)"

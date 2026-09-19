@@ -12,10 +12,10 @@ export const createHudLabel = (
 ): THREE.Sprite => {
   const cv = document.createElement('canvas');
   cv.width = 512;
-  cv.heightheight = 128;
+  cv.height = 128;
   const ctx = cv.getContext('2d')!;
 
-  ctx.fillStylellStyle = 'rgba(7, 9, 22, 0.85)';
+  ctx.fillStyle = 'rgba(7, 9, 22, 0.85)';
   ctx.strokeStyle = colorHex;
   ctx.lineWidth = 3;
 
@@ -34,7 +34,7 @@ export const createHudLabel = (
   ctx.lineTo(x + r, y + h);
   ctx.quadraticCurveTo(x, y + h, x, y + h - r);
   ctx.lineTo(x, y + r);
-  ctxadraticCurveTo(x, y, x + r, y);
+  ctx.quadraticCurveTo(x, y, x + r, y);
   ctx.closePath();
   ctx.fill();
   ctx.stroke();
@@ -58,7 +58,7 @@ ctx.strokeStyle = '#ffffff';
 
   ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
   ctx.lineWidth = 2;
-  ctx.strokeTextbeginPath();
+  ctx.beginPath();
   ctx.moveTo(x + 78, y + 16);
   ctx.lineTo(x + 78, y + h - 16);
   ctx.stroke();
@@ -73,7 +73,7 @@ ctx.strokeStyle = '#ffffff';
   const tex = new THREE.CanvasTexture(cv);
   disposables.push(tex);
 
-  const mat = new THREE.SpriteMaterialSpriteMaterial({
+  const mat = new THREE.SpriteMaterial({
     map: tex,
     transparent: true,
     depthWrite: false,
@@ -87,7 +87,7 @@ ctx.strokeStyle = '#ffffff';
 };
 
 export const createSunTexture = (disposables: DisposableItem[] = []): THREE.CanvasTexture => {
-  const cv = document.createElemenateElement('canvas');
+  const cv = document.createElement('canvas');
   cv.width = 1024;
   cv.height = 512;
   const ctx = cv.getContext('2d')!;
@@ -105,9 +105,9 @@ export const createSunTexture = (disposables: DisposableItem[] = []): THREE.Canv
     const x = Math.random() * 1024;
     const y = Math.random() * 512;
     const r = Math.random() * 16 + 3;
-    ctx.fillStyle = Math.random() > 0.45 / 'rgba(255, 255, 230, 0.7)' : 'rgba(255, 60, 0, 0.4)';
+    ctx.fillStyle = Math.random() > 0.45 ? 'rgba(255, 255, 230, 0.7)' : 'rgba(255, 60, 0, 0.4)';
     ctx.beginPath();
-    ctx.arc(x, y, r, 0, Math.PIPI * 2);
+    ctx.arc(x, y, r, 0, Math.PI * 2);
     ctx.fill();
   
   }
@@ -115,7 +115,7 @@ export const createSunTexture = (disposables: DisposableItem[] = []): THREE.Canv
   ctx.fillStyle = 'rgba(255, 230, 120, 0.6)';
   for (let i = 0; i < 40; i++) {
     ctx.beginPath();
-    ctx.ellipse(Math.random() * 1024, Math.randomrandom() * 512, 60, 12, Math.random() * Math.PI, 0, Math.PI * 2);
+    ctx.ellipse(Math.random() * 1024, Math.random() * 512, 60, 12, Math.random() * Math.PI, 0, Math.PI * 2);
     ctx.fill();
   }
 
@@ -155,7 +155,7 @@ export const createMercuryTexture = (disposables: DisposableItem[] = []): THREE.
     const x = Math.random() * 512;
     const y = Math.random() * 256;
     const r = Math.random() * 9 + 2;
-    ctx.fillStyle = Math.random() > 0.5 / '#6a6e78' : '#c8cbd5';
+    ctx.fillStyle = Math.random() > 0.5 ? '#6a6e78' : '#c8cbd5';
     ctx.beginPath();
     ctx.arc(x, y, r, 0, Math.PI * 2);
     ctx.fill();
@@ -176,7 +176,7 @@ export const createVenusTexture = (disposables: DisposableItem[] = []): THREE.Ca
   cv.height = 256;
   const ctx = cv.getContext('2d')!;
 
-  const grad = ctx.createLinearGradientt(0, 0, 0, 256);
+  const grad = ctx.createLinearGradient(0, 0, 0, 256);
   grad.addColorStop(0, '#e8aa48');
   grad.addColorStop(0.25, '#f5c872');
   grad.addColorStop(0.5, '#fce6a8');
@@ -205,7 +205,7 @@ export const createEarthTexture = (disposables: DisposableItem[] = []): THREE.Ca
 
   const seaGrad = ctx.createLinearGradient(0, 0, 0, 512);
   seaGrad.addColorStop(0, '#0d3b82');
-  seaGrad.addColorStoplorStop(0.5, '#1254b8');
+  seaGrad.addColorStop(0.5, '#1254b8');
   seaGrad.addColorStop(1, '#0c3575');
   ctx.fillStyle = seaGrad;
   ctx.fillRect(0, 0, 1024, 512);
@@ -278,12 +278,12 @@ export const createMoonTexture = (disposables: DisposableItem[] = []): THREE.Can
   ctx.beginPath();
   ctx.ellipse(90, 50, 40, 25, 0, 0, Math.PI * 2);
   ctx.ellipse(170, 70, 35, 22, 0, 0, Math.PI * 2);
-  ctx.fillStylel();
+  ctx.fill();
 
   ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
   for (let i = 0; i < 45; i++) {
     ctx.beginPath();
-    ctx.arc(Math.random() * 256, Math.random() * 128, Math.randomm() * 5 + 1.5, 0, Math.PI * 2);
+    ctx.arc(Math.random() * 256, Math.random() * 128, Math.random() * 5 + 1.5, 0, Math.PI * 2);
     ctx.fill();
   }
 
@@ -382,7 +382,7 @@ export const createSaturnTexture = (disposables: DisposableItem[] = []): THREE.C
 
   const grad = ctx.createLinearGradient(0, 0, 0, 256);
   grad.addColorStop(0, '#f2d49c');
-  grad.addColorStop(mx_bilerp_0.2, '#e2ba73');
+  grad.addColorStop(0.2,'#e2ba73');
   grad.addColorStop(0.4, '#fae8c7');
   grad.addColorStop(0.6, '#d8ad62');
   grad.addColorStop(0.8, '#f6e2be');
@@ -441,7 +441,7 @@ export const createUranusTexture = (disposables: DisposableItem[] = []): THREE.C
 };
 
 export const createNeptuneTexture = (disposables: DisposableItem[] = []): THREE.CanvasTexture => {
-  const cv = document.createElement('canvaanvas');
+  const cv = document.createElement('canvas');
   cv.width = 256;
   cv.height = 128;
   const ctx = cv.getContext('2d')!;
@@ -463,11 +463,11 @@ export const createNeptuneTexture = (disposables: DisposableItem[] = []): THREE.
   ctx.fill();
 
   const tex = new THREE.CanvasTexture(cv);
-  disposables.push(t);
+  disposables.push(tex);
   return tex;
 };
 
-export const createNebulaTexture = (disposables: DisposableItem[] = []): THREE.CanvasTexture => aCloud = (
+export const createNebulaTexture =  (
   r: number,
   g: number,
   b: number,

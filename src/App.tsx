@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { ActiveScreen } from './types';
 import { HomeView } from './views/HomeView';
 import { PlayZoneView } from './views/PlayZoneView';
-import { DailyBonusModal } from './components/DailyBonusModal';
-import { UpgradeModal } from './components/UpgradeModal';
-import { CadetProfileModal } from './components/CadetProfileModal';
-import { ResetConfirmModal } from './components/ResetConfirmModal';
-import { CosmicCanvasBackground } from './components/CosmicCanvasBackground';
+import { DailyBonusModal } from './components/DailyBonusModal.tsx/index.ts';
+import { UpgradeModal } from './components/UpgradeModal.tsx/index.ts';
+import { CadetProfileModal } from './components/CadetProfileModal.tsx';
+import { ResetConfirmModal } from './components/ResetConfirmmodal.tsx/index.ts';
+import { CosmicCanvasBackground } from './components/CosmicCanvasBackground.tsx/index.ts';
 import { soundManager } from './utils/audio';
 
 export default function App() {
@@ -16,7 +16,7 @@ export default function App() {
   const [playSessionKey, setPlaySessionKey] = useState<number>(0);
   const [highScore, setHighScore] = useState<number>(() => {
     try {
-      const saved = localStorage.getItem('space-cleanup-high-score');
+      const saved = localStorage.getItem('space_cleanup_high_score');
       if (saved !== null) return parseInt(saved, 10) || 0;
     } catch {
       
@@ -50,7 +50,7 @@ export default function App() {
 
   const handleConfirmWholeReset = () => {
     try {
-      localStorage.setItem('space-cleanup-high-score', '0');
+      localStorage.setItem('space_cleanup_high_score', '0');
     } catch {
       
     }
@@ -131,10 +131,9 @@ isOpen={isResetConfirmOpen}
         onClose={() => setIsCadetProfileOpen(false)}
         highScore={highScore}
         totalStars={stars}
-        totalGems={gems
-        }
+        totalGems={gems}
         vacuumGrade="Class S"
       />
     </div>  
-);
+  );
 }

@@ -9,15 +9,15 @@ export interface PlanetData {
   orbitSpeed: number;
   orbitAngle: number;
   description: string;
-  hasRing/: boolean;
-  ringInner/: number;
-  ringOuter/: number;
-  ringColor/: string;
-  hasMoon/: boolean;
-  moonAngle/: number;
-  moonDistance/: number;
-  moonRadius/: number;
-  moonColor/: string;
+  hasRing?: boolean;
+  ringInner?: number;
+  ringOuter?: number;
+  ringColor?: string;
+  hasMoon?: boolean;
+  moonAngle?: number;
+  moonDistance?: number;
+  moonRadius?: number;
+  moonColor?: string;
   bonusPoints: number;
 }
 
@@ -52,10 +52,10 @@ export interface AsteroidObstacle {
   hp: number;
   maxHp: number;
   color: number;
-  asteroidType/: 'iron' | 'ice' | 'rock';
+  asteroidType?: 'iron' | 'ice' | 'rock';
 }
 
-export interface SpaceMineObstacle aceMineObstacle {
+export interface SpaceMineObstacle {
   id: number;
   x: number;
   y: number;
@@ -133,7 +133,7 @@ export interface FloatingScoreItem {
   life: number;
 }
 
-export const SOLAR-PLANETS: PlanetData[] = [
+export const SOLAR_PLANETS: PlanetData[] = [
   {
     id: 'mercury',
     name: 'MERCURY',
@@ -162,7 +162,7 @@ export const SOLAR-PLANETS: PlanetData[] = [
   },
   {
     id: 'earth',
-    name: 'EARTH'ARTH',
+    name: 'EARTH',
     title: 'The Azure Oasis',
     color: '#2882e8',
     glowColor: '#63b4ff',

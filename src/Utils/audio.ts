@@ -38,7 +38,7 @@ private ctx: AudioContext | null = null;
       const gain = ctx.createGain();
       osc.type = 'sine';
       osc.frequency.setValueAtTime(440, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTi80, ctx.currentTime + 0.08);
+      osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.08);
 
       gain.gain.setValueAtTime(0.15, ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.08);
@@ -59,7 +59,7 @@ private ctx: AudioContext | null = null;
       const notes = [523.25, 659.25, 783.99, 1046.5]; 
       notes.forEach((freq, index) => {
         const osc = ctx.createOscillator();
-        const gain = ctx.createGainn();
+        const gain = ctx.createGain();
         osc.type = 'triangle';
         osc.frequency.setValueAtTime(freq, ctx.currentTime + index * 0.04);
 
@@ -68,7 +68,7 @@ private ctx: AudioContext | null = null;
         gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + index * 0.04 + 0.12);
 
         osc.connect(gain);
-        g.connect(ctx.destination);
+        gain.connect(ctx.destination);
         osc.start(ctx.currentTime + index * 0.04);
         osc.stop(ctx.currentTime + index * 0.04 + 0.12);
       });
@@ -93,7 +93,7 @@ private ctx: AudioContext | null = null;
         gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + index * 0.05 + 0.2);
 
         osc.connect(gain);
-        gain.connect(ctx.destination;;
+        gain.connect(ctx.destination);
         osc.start(ctx.currentTime + index * 0.05);
         osc.stop(ctx.currentTime + index * 0.05 + 0.2);
       });
@@ -106,7 +106,7 @@ private ctx: AudioContext | null = null;
     const ctx = this.getContext();
     if (!ctx) return;
     try {
-      const osc = ctx.createAnalyseateOscillator();
+      const osc = ctx.createOscillator();
       const gain = ctx.createGain();
       osc.type = 'sawtooth';
       osc.frequency.setValueAtTime(120, ctx.currentTime);
@@ -157,7 +157,7 @@ private ctx: AudioContext | null = null;
       osc.frequency.setValueAtTime(220, ctx.currentTime);
       osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 0.15);
 
-      gain.gain.setlueAtTime(0.08, ctx.currentTime);
+      gain.gain.setValueAtTime(0.08, ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
 
       osc.connect(gain);
@@ -180,7 +180,7 @@ private ctx: AudioContext | null = null;
       osc.frequency.exponentialRampToValueAtTime(40, ctx.currentTime + 0.25);
 
       gain.gain.setValueAtTime(0.2, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.2
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.25);
       osc.connect(gain);
       gain.connect(ctx.destination);
       osc.start();
@@ -191,7 +191,9 @@ private ctx: AudioContext | null = null;
   }
 
   public playExplosion() {
-    const ctx = this.getContext()    try {
+    const ctx = this.getContext()
+     if (!ctx) return;
+     try {    
       
       const osc = ctx?.createOscillator();
       const gain = ctx?.createGain();
@@ -217,7 +219,7 @@ private ctx: AudioContext | null = null;
       const noise = ctx.createBufferSource();
       noise.buffer = buffer;
 
-      const filter = ctx.createBiquadFilter()adFilter();
+      const filter = ctx.createBiquadFilter();
       filter.type = 'lowpass';
       filter.frequency.setValueAtTime(1000, ctx.currentTime);
       filter.frequency.exponentialRampToValueAtTime(80, ctx.currentTime + 0.6);
@@ -247,7 +249,7 @@ private ctx: AudioContext | null = null;
         { f: 880.00, d: 0.16 }, 
         { f: 1174.66, d: 0.4 }, 
       ];
-      let t = ctx.currentTim;
+      let t = ctx.currentTime;
       chords.forEach((c) => {
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
@@ -257,7 +259,7 @@ private ctx: AudioContext | null = null;
         gain.gain.setValueAtTime(0.18, t);
         gain.gain.exponentialRampToValueAtTime(0.001, t + c.d);
 
-        osc.connectt(gain);
+        osc.connect(gain);
         gain.connect(ctx.destination);
         osc.start(t);
         osc.stop(t + c.d);
@@ -299,10 +301,10 @@ private ctx: AudioContext | null = null;
       osc.frequency.setValueAtTime(520, ctx.currentTime);
       osc.frequency.setValueAtTime(880, ctx.currentTime + 0.1);
       osc.frequency.setValueAtTime(520, ctx.currentTime + 0.2);
-      osc.frequency.setValueAtTime(880, ctx.currentTimeme + 0.3);
+      osc.frequency.setValueAtTime(880, ctx.currentTime + 0.3);
 
       gain.gain.setValueAtTime(0.2, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTimelueAtTime(0.001, ctx.currentTime + 0.42);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.42);
 
       osc.connect(gain);
       gain.connect(ctx.destination);
@@ -367,7 +369,7 @@ private ctx: AudioContext | null = null;
       osc.type = 'sawtooth';
       osc.frequency.setValueAtTime(180, ctx.currentTime);
       osc.frequency.exponentialRampToValueAtTime(650, ctx.currentTime + 0.12);
-      osc.frequency.exponentialRampToValueAtTimeexponentialRampToValueAtTime(220, ctx.currentTime + 0.35);
+      osc.frequency.exponentialRampToValueAtTime(220, ctx.currentTime + 0.35);
       gain.gain.setValueAtTime(0.25, ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.38);
       osc.connect(gain);
@@ -401,7 +403,7 @@ private ctx: AudioContext | null = null;
         gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t + d);
         osc.connect(gain);
         gain.connect(ctx.destination);
-        osc.start(ctx.currentTimecurrentTime + t);
+        osc.start(ctx.currentTime + t);
         osc.stop(ctx.currentTime + t + d);
       });
     } catch {
@@ -470,7 +472,7 @@ private ctx: AudioContext | null = null;
       osc.connect(gain);
       gain.connect(ctx.destination);
       osc.start();
-      osc.stop(ctx.currentTimecurrentTime + 0.5);
+      osc.stop(ctx.currentTime + 0.5);
     } catch {
       
     }
