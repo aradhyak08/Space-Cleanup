@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { ActiveScreen } from './types';
 import { HomeView } from './views/HomeView';
 import { PlayZoneView } from './views/PlayZoneView';
-import { DailyBonusModal } from './components/DailyBonusModal.tsx/index.ts';
-import { UpgradeModal } from './components/UpgradeModal.tsx/index.ts';
-import { CadetProfileModal } from './components/CadetProfileModal.tsx';
-import { ResetConfirmModal } from './components/ResetConfirmmodal.tsx/index.ts';
-import { CosmicCanvasBackground } from './components/CosmicCanvasBackground.tsx/index.ts';
+import { DailyBonusModal } from './components/DailyBonusModal';
+import { UpgradeModal } from './components/UpgradeModal';
+import { CadetProfileModal } from './components/CadetProfileModal';
+import { ResetConfirmModal } from './components/ResetConfirmModal';
+import { CosmicCanvasBackground } from './components/CosmicCanvasBackground';
 import { soundManager } from './utils/audio';
 
 export default function App() {
