@@ -107,7 +107,7 @@ export const CosmicRadar: React.FC<CosmicRadarProps> = ({
       ctx.arc(px, py, dotRadius, 0, Math.PI * 2);
       ctx.fillStyle = planet.color;
       ctx.shadowColor = planet.glowColor;
-      ctx.shadowBlur = discoveredPlanets.has(planet.id) / 6 : 2;
+      ctx.shadowBlur = discoveredPlanets.has(planet.id) ? 6 : 2;
       ctx.fill();
       ctx.shadowBlur = 0;
     });
@@ -231,7 +231,7 @@ export const CosmicRadar: React.FC<CosmicRadarProps> = ({
         
                <div className="absolute inset-0 rounded-full bg-gradient-to-b from-[#00f0ff]/5 via-transparent to-[#00f0ff]/10 pointer-events-none z-10" />
         
-                  <Canvas          
+                  <canvas          
                   ref={canvasRef}
                   width={128}
                   height={128}
@@ -254,7 +254,7 @@ export const CosmicRadar: React.FC<CosmicRadarProps> = ({
             </div> 
             {nearestPlanet && (
                 <div className="mt-1 flex items-center gap-1.5 bg-[#090d16]/90 px-2 py-0.5 rounded border border-[#1e293b] shadow-sm">
-                   <Span           
+                   <span           
                      className="w-1.5 h-1.5 rounded-full flex-shrink-0"
                      style={{ backgroundColor: nearestPlanet.color }}
                     />
