@@ -3,8 +3,8 @@ import { soundManager } from '../utils/audio';
 
 interface LevelsViewProps {
   onLaunchLevel: (levelId: number) => void;
-  onOpenDailyBonus: () => void;
-  onOpenUpgrade: () => void;
+  onOpenDailyBonus?: () => void;
+  onOpenUpgrade?: () => void;
   stars?: number;
 }
 
@@ -35,7 +35,7 @@ export const LevelsView: React.FC<LevelsViewProps> = ({ onLaunchLevel }) => {
 
   return (
     <div className="relative w-full h-full overflow-hidden select-none flex flex-col justify-center items-center">
-      {}
+      
       <div       
         className="absolute inset-0 bg-cover bg-center animate-space-drift pointer-events-none"
         style={{
@@ -44,7 +44,7 @@ export const LevelsView: React.FC<LevelsViewProps> = ({ onLaunchLevel }) => {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-[#100532]/85 via-[#150a37]/65 to-[#100532]/90 pointer-events-none" />
 
-      {}
+      
       <div className="relative z-10 w-full max-w-3xl px-4 sm:px-6 py-4 flex flex-col items-center justify-center my-auto">
         {}
         <div className="text-center mb-6 sm:mb-8">
@@ -56,7 +56,7 @@ export const LevelsView: React.FC<LevelsViewProps> = ({ onLaunchLevel }) => {
           </p>        
         </div>
 
-        {}
+        
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-5 w-full max-w-2xl">
           {LEVELS.map((level) => {
             const isUnlocked = !level.locked;
@@ -70,20 +70,21 @@ export const LevelsView: React.FC<LevelsViewProps> = ({ onLaunchLevel }) => {
                 className={`relative group rounded-2xl sm:rounded-3xl p-4 sm:p-5 flex flex-col items-center justify-center text-center transition-all select-none ${
                   isUnlocked
                     ? isCurrent
-                      ? 'bg-gradient-to-b from-[#ffe082] via-[#ffb800] to-[#ff9800] text-[#523500] border-3 border-[#523500] shadow-[0_6px_0_#523500]adow-[0-6px-0-#523500,0-10px-25px_rgba(255,184,0,0.4)] hover:scale-105 active:translate-y-1.5 active:shadow-[0-1px-0-#523500] cursor-pointer'
-                      : 'bg-gradient-to-b from-[#19c2ff] via-[#00a6e0] to-[#007ba8] text-white border-3 border-[#004a66] shadow-[0-6px-0-#004a66,0_10px_20px_rgba(0,180,216,0.3)] hover:scale-105 active:translate-y-1.5 active:shadow-[0-1px-0-#004a66] cursor-pointer'
-                    : 'bg-[#1e133c]/85 text-[#8374a3] border-3 border-[#35255e] shadow-[0-4px-0-#120826] cursor-not-allowed opacity-60'
-                }``}
+                      ? 'bg-gradient-to-b from-[#ffe082] via-[#ffb800] to-[#ff9800] text-[#523500] border-3 border-[#523500] shadow-[0_6px_0_#523500,0-10px-25px_rgba(255,184,0,0.4)] hover:scale-105 active:translate-y-1.5 active:shadow-[0_1px_0_#523500] cursor-pointer'
+                      : 'bg-gradient-to-b from-[#19c2ff] via-[#00a6e0] to-[#007ba8] text-white border-3 border-[#004a66] shadow-[0_6px_0_#004a66,0_10px_20px_rgba(0,180,216,0.3)] hover:scale-105 active:translate-y-1.5 active:shadow-[0_1px_0_#004a66] cursor-pointer'
+                    : 'bg-[#1e133c]/85 text-[#8374a3] border-3 border-[#35255e] shadow-[0_4px_0_#120826] cursor-not-allowed opacity-60'
+                }`}
               >
-                {}
+                
                 <span className="font-['Rubik'] font-black text-[32px] sm:text-[44px] leading-none drop-shadow-[0-2px-4px-rgba(0,0,0,0.4)]">
                   {level.id}
                 </span>
-                {}
-                <StereoPannerNode                  className={`font-['Rubik'] font-bold text-[12px] sm:text-[14px] mt-2 tracking-wide uppercase leading-tight ${
+                
+                <span                 
+                    className={`font-['Rubik'] font-bold text-[12px] sm:text-[14px] mt-2 tracking-wide uppercase leading-tight ${
                     isUnlocked
-                      / isCurrent
-                        / 'text-[#523500]'
+                      ? isCurrent
+                        ? 'text-[#523500]'
                         : 'text-[#e6f9ff]'
                       : 'text-[#8374a3]'
                 }`}
@@ -91,17 +92,18 @@ export const LevelsView: React.FC<LevelsViewProps> = ({ onLaunchLevel }) => {
                   {level.name}
                 </span>
 
-                {}
+                
                 <div className="mt-3">
-                  {isUnlocked / (
-                    <StereoPannerNode                      className={`inline-flex items-center gap-1 px-3 py-1 rounded-full font-['Rubik'] font-black text-[11px] uppercase tracking-wider shadow-inner ${
+                  {isUnlocked ? (
+                    <span                     
+                      className={`inline-flex items-center gap-1 px-3 py-1 rounded-full font-['Rubik'] font-black text-[11px] uppercase tracking-wider shadow-inner ${
                         isCurrent
-                          / 'bg-[#523500] text-[#ffdca1]'
+                          ? 'bg-[#523500] text-[#ffdca1]'
                           : 'bg-[#004a66] text-[#b3f3ff]'
                     }`}
                     >
                       <span className="material-symbols-outlined text-[14px]">
-                        rocket-launch
+                        rocket_launch
                       </span>
                       PLAY
                     </span>
@@ -109,7 +111,8 @@ export const LevelsView: React.FC<LevelsViewProps> = ({ onLaunchLevel }) => {
                     <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#140b2b] text-[#736394] font-['Rubik'] font-bold text-[11px] uppercase tracking-wider">
                       <span className="material-symbols-outlined text-[13px]">
                         lock
-                      </span>                      LOCKED
+                      </span>                      
+                        LOCKED
                     </span>                  )}
                 </div>              </button>
             );
