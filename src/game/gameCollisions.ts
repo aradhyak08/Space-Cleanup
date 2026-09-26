@@ -70,7 +70,7 @@ export function updateGameCollisions(
         setGemsCollectedCount(game.gemsCollected);
 
         if (game.gemsCollected % 15 === 0 && game.hitChances < game.maxHitChances) {
-          game.hitChances = Math.min(game.maxHitChances, game.hitChances + 1)ame.maxHitChances, game.hitChances + 1);
+          game.hitChances = Math.min(game.maxHitChances, game.hitChances + 1) ;
           setHitChances(game.hitChances);
           soundManager.playShield();
           game.floatingScores.push({
