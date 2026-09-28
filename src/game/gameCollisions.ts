@@ -1,5 +1,5 @@
 import React from 'react';
-import { soundManager } from '../utils/audio';
+import { soundManager } from '../Utils/audio';
 import { GameState, LAUNCH_STATION } from '../types/gameEngine';
 import { blastMine, registerPlayerImpact } from './gameExplosions';
 

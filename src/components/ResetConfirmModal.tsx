@@ -1,6 +1,6 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { soundManager } from '../utils/audio';
+import { soundManager } from '../Utils/audio';
 
 interface ResetConfirmModalProps {
   isOpen: boolean;

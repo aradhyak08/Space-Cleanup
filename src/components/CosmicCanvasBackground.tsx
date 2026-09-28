@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { DisposableItem } from '../utils/cosmicTextures';
-import { buildSolarSystem } from '../utils/cosmicCelestialBodies';
+import { DisposableItem } from '../Utils/cosmicTextures';
+import { buildSolarSystem } from '../Utils/cosmicCelestialBodies';
 
 interface CosmicCanvasBackgroundProps {
   speedMultiplier?: number;

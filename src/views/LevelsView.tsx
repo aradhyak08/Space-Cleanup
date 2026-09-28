@@ -1,5 +1,5 @@
 import React from 'react';
-import { soundManager } from '../utils/audio';
+import { soundManager } from '../Utils/audio';
 
 interface LevelsViewProps {
   onLaunchLevel: (levelId: number) => void;

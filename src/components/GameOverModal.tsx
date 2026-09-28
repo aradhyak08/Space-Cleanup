@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { soundManager } from '../utils/audio';
+import { soundManager } from '../Utils/audio';
 import { CosmicCanvasBackground } from './CosmicCanvasBackground';
 
 interface GameOverModalProps {

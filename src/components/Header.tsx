@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActiveScreen } from '../types';
-import { soundManager } from '../utils/audio';
+import { soundManager } from '../Utils/audio';
 
 interface HeaderProps {
   activeScreen?: ActiveScreen;

@@ -7,7 +7,7 @@ import { UpgradeModal } from './components/UpgradeModal';
 import { CadetProfileModal } from './components/CadetProfileModal';
 import { ResetConfirmModal } from './components/ResetConfirmModal';
 import { CosmicCanvasBackground } from './components/CosmicCanvasBackground';
-import { soundManager } from './utils/audio';
+import { soundManager } from './Utils/audio';
 
 export default function App() {
   const [activeScreen, setActiveScreen] = useState<ActiveScreen>('home');

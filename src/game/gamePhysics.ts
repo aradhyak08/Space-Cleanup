@@ -1,4 +1,4 @@
-import { soundManager } from '../utils/audio';
+import { soundManager } from '../Utils/audio';
 import { GameState, LAUNCH_STATION } from '../types/gameEngine';
 import { registerPlayerImpact } from './gameExplosions';
 

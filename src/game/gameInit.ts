@@ -5,7 +5,7 @@ import {
   AsteroidObstacle,
   SpaceMineObstacle,
 } from '../types/universe';
-import { createPixelStars } from '../utils/pixelRenderer';
+import { createPixelStars } from '../Utils/pixelRenderer';
 import { GameState, LAUNCH_STATION } from '../types/gameEngine';
 
 export function populateAsteroids(): AsteroidObstacle[]  {

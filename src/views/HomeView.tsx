@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 import { MascotShipSvg } from '../components/MascotShipSvg';
-import { soundManager } from '../utils/audio';
+import { soundManager } from '../Utils/audio';
 
 interface HomeViewProps {
   onPlay: () => void;

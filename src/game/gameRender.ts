@@ -10,7 +10,7 @@ drawPixelMine,
   drawPixelComet,
   drawPixelFireBolt,
   drawPixelRocket,
-} from '../utils/pixelRenderer';
+} from '../Utils/pixelRenderer';
 import { GameState, LAUNCH_STATION } from '../types/gameEngine';
 
 export function renderGameScene(

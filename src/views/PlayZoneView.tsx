@@ -11,7 +11,7 @@ import {
   ChevronRight,
   Heart,
 } from 'lucide-react';
-import { soundManager } from '../utils/audio';
+import { soundManager } from '../Utils/audio';
 import { GameOverModal } from '../components/GameOverModal.tsx';
 import { PauseMissionModal } from '../components/PauseMissionModal.tsx';
 import { GameState, ActiveControlsState } from '../types/gameEngine';

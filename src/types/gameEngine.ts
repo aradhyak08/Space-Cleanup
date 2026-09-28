@@ -8,7 +8,7 @@ import {
   SpaceDebrisItem,
   FireProjectile,
 } from './universe';
-import { PixelStar } from '../utils/pixelRenderer';
+import { PixelStar } from '../Utils/pixelRenderer';
 
 export const LAUNCH_STATION = {
   x: 720,
