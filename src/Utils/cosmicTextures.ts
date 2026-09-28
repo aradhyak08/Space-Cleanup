@@ -488,3 +488,5 @@ export const createNebulaTexture =  (
   disposables.push(tex);
   return tex;
 };
+
+export const createNebulaCloud = createNebulaTexture;

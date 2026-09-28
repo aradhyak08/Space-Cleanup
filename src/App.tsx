@@ -86,20 +86,12 @@ export default function App() {
           <PlayZoneView
             key={playSessionKey}
             initialScore={0}
-            gems={gems}
-            setGems={setGems}
-            stars={stars}
-            setStars={setStars}
-            highScore={highScore}
-            setHighScore={setHighScore}
             onReturnHome={() => {
               soundManager.playClick();
               setActiveScreen('home');
             }}
-            onWholeReset={() => setIsResetConfirmOpen(true)}
             suctionPower={suctionPower}
             boostSpeed={boostSpeed}
-            shieldDuration={shieldDuration}
           />
         )}
       </main>

@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import { soundManager } from '../utils/audio';
 import { GameOverModal } from '../components/GameOverModal.tsx';
-import { PauseMissionModal } from '../components/PauseMissionModal';
+import { PauseMissionModal } from '../components/PauseMissionModal.tsx';
 import { GameState, ActiveControlsState } from '../types/gameEngine';
 import { createInitialGameState, resetGameState } from '../game/gameInit';
 import { updateGamePhysics } from '../game/gamePhysics';
@@ -316,7 +316,7 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
             soundManager.playClick();
             setIsPaused(true);
             }}
-          className="w-8 h-8 flex items-center justify-center text-white/70 hover:text-white bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 backdrop-blur-md rounded-lg transition-colors cursor-pointer"
+          className="w-9 h-9 flex items-center justify-center text-[#f3e8c8] hover:text-white bg-[#1b1534] hover:bg-[#2a2148] border-2 border-[#0a0614] shadow-[3px_3px_0_#05030d] transition-all cursor-pointer"
         title="Pause / Menu"
         >
           <ArrowLeft size={15} />
@@ -324,7 +324,7 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
 
         <button 
           onClick={handleToggleSound}
-          className="w-8 h-8 flex items-center justify-center text-white/70 hover:text-white bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 backdrop-blur-md rounded-lg transition-colors cursor-pointer"
+          className="w-9 h-9 flex items-center justify-center text-[#f3e8c8] hover:text-white bg-[#1b1534] hover:bg-[#2a2148] border-2 border-[#0a0614] shadow-[3px_3px_0_#05030d] transition-all cursor-pointer"
           title={isMuted ? 'Unmute' : 'Mute'}
         >
           {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
@@ -332,18 +332,12 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
 
         <button         
           onClick={() => setIsPaused(true)}
-          className="w-8 h-8 flex items-center justify-center text-white/70 hover:text-white bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 backdrop-blur-md rounded-lg transition-colors cursor-pointer"
+          className="w-9 h-9 flex items-center justify-center text-[#f3e8c8] hover:text-white bg-[#1b1534] hover:bg-[#2a2148] border-2 border-[#0a0614] shadow-[3px_3px_0_#05030d] transition-all cursor-pointer"
           title="Pause"
         >
           <Pause size={15} />
         </button>
       </div>
-      <div className="absolute top-3 left-1/2 -translate-x-1/2 z-30 hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 backdrop-blur-md select-none pointer-events-none text-[8px] font-mono tracking-widest text-slate-300/70">
-        <span>NAV: [W/A/D]</span>        
-        <span className="text-white/20">•</span>        
-        <span>BRAKE: [S]</span>
-        <span className="text-white/20">•</span>        <span>FIRE: [SPACE]</span>        <span className="text-white/20">•</span>        <span>BOOST: [SHIFT]</span>      </div>
-
       <div className="absolute top-3 right-4 z-30 flex items-center gap-4 select-none pointer-events-none">
         <div className="flex items-center gap-1">
           {Array.from({ length: 3 }).map((_, idx) => (
@@ -377,10 +371,10 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
           }}
           onPointerLeave={() => handleFirePress(false)}
           onPointerCancel={() => handleFirePress(false)}
-          className={`w-15 h-15 sm:w-16 sm:h-16 rounded-full flex flex-col items-center justify-center transition-all duration-75 select-none cursor-pointer backdrop-blur-sm border ${
+          className={`w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center transition-all duration-75 select-none cursor-pointer border-2 border-[#0a0614] bg-[#1b1534] shadow-[4px_4px_0_#05030d] ${
             activeControls.fire 
-              ? 'border-white/35 bg-white/20 text-white scale-95'
-              : 'border-white/10 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/20 text-white/70 hover:text-white/90'
+              ? 'text-[#ffcc00] bg-[#34261a] translate-x-1 translate-y-1 shadow-[1px_1px_0_#05030d]'
+              : 'text-[#f3e8c8] hover:bg-[#2a2148] hover:text-white'
           }`}
           title="Fire Plasma Bolt (Space)"
         >
@@ -388,12 +382,6 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
             size={20}
             className={activeControls.fire ? 'text-white' : 'text-white/75'}
           />
-          <span className="font-['Orbitron'] font-bold text-[9px] tracking-wider mt-0.5">
-            FIRE
-          </span>
-          <span className="font-mono text-[7px] text-white/40 leading-none">
-            SPACE
-          </span>        
         </button>
 
         <button          
@@ -409,10 +397,10 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
           onPointerLeave={() => handleBoostPress(false)}
           onPointerCancel={() => handleBoostPress(false)
           }
-          className={`w-15 h-15 sm:w-16 sm:h-16 rounded-full flex flex-col items-center justify-center transition-all duration-75 select-none cursor-pointer backdrop-blur-sm border ${
+          className={`w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center transition-all duration-75 select-none cursor-pointer border-2 border-[#0a0614] bg-[#1b1534] shadow-[4px_4px_0_#05030d] ${
             activeControls.boost
-              ? 'border-white/35 bg-white/20 text-white scale-95'
-              : 'border-white/10 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/20 text-white/70 hover:text-white/90'
+              ? 'text-[#ffcc00] bg-[#34261a] translate-x-1 translate-y-1 shadow-[1px_1px_0_#05030d]'
+              : 'text-[#f3e8c8] hover:bg-[#2a2148] hover:text-white'
           }`}
         title="Nitro Boost (Shift)"
         >
@@ -420,12 +408,6 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
             size={20}
             className={activeControls.boost ? 'text-white' : 'text-white/75'}
           />
-          <span className="font-['Orbitron'] font-bold text-[9px] tracking-wider mt-0.5">
-            BOOST
-        </span>
-          <span className="font-mono text-[7px] text-white/40 leading-none">
-            SHIFT
-          </span>
         </button>
       </div>
 
@@ -443,10 +425,10 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
             }}
             onPointerLeave={() => handleDirectionPress('up', false)}
             onPointerCancel={() => handleDirectionPress('up', false)}
-            className={`w-13 h-13 rounded-full flex flex-col items-center justify-center transition-all duration-75 select-none cursor-pointer backdrop-blur-sm border ${
+            className={`w-11 h-11 flex items-center justify-center transition-all duration-75 select-none cursor-pointer border-2 border-[#0a0614] bg-[#1b1534] shadow-[3px_3px_0_#05030d] ${
               activeControls.up
-                ? 'border-white/35 bg-white/20 text-white scale-95'
-                : 'border-white/10 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/20 text-white/70 hover:text-white/90'
+                ? 'text-[#ffcc00] bg-[#34261a] translate-x-1 translate-y-1 shadow-[1px_1px_0_#05030d]'
+                : 'text-[#f3e8c8] hover:bg-[#2a2148] hover:text-white'
             }`}
             title="Forward Thrust (W / ↑)"
           >
@@ -454,9 +436,6 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
               size={20}
             className={`stroke-[2.5] ${activeControls.up ? 'text-white' : 'text-white/75'}`}
             />
-            <span className="text-[7.5px] font-['Orbitron'] font-bold tracking-wider -mt-0.5">
-              FWD
-            </span>
           </button>
 
           <div className="flex items-center gap-2">
@@ -472,10 +451,10 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
               }}
             onPointerLeave={() => handleDirectionPress('left', false)}
               onPointerCancel={() => handleDirectionPress('left', false)}
-              className={`w-13 h-13 rounded-full flex flex-col items-center justify-center transition-all duration-75 select-none cursor-pointer backdrop-blur-sm border ${
+              className={`w-11 h-11 flex items-center justify-center transition-all duration-75 select-none cursor-pointer border-2 border-[#0a0614] bg-[#1b1534] shadow-[3px_3px_0_#05030d] ${
                 activeControls.left
-                  ? 'border-white/35 bg-white/20 text-white scale-95'
-                  : 'border-white/10 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/20 text-white/70 hover:text-white/90'
+                  ? 'text-[#ffcc00] bg-[#34261a] translate-x-1 translate-y-1 shadow-[1px_1px_0_#05030d]'
+                  : 'text-[#f3e8c8] hover:bg-[#2a2148] hover:text-white'
               }`}
               title="Turn Left (A / ←)"
             >
@@ -483,9 +462,6 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
                 size={20}
                 className={`stroke-[2.5] ${activeControls.left ? 'text-white' : 'text-white/75'}`}
               />
-              <span className="text-[7.5px] font-['Orbitron'] font-bold tracking-wider -mt-0.5">
-                L
-              </span>
             </button>
 
             <button
@@ -500,17 +476,14 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
               }}
               onPointerLeave={() => handleDirectionPress('down', false)}
               onPointerCancel={() => handleDirectionPress('down', false)}
-              className={`w-16 h-13 rounded-2xl flex flex-col items-center justify-center transition-all duration-75 select-none cursor-pointer backdrop-blur-sm border ${
+              className={`w-11 h-11 flex items-center justify-center transition-all duration-75 select-none cursor-pointer border-2 border-[#0a0614] bg-[#1b1534] shadow-[3px_3px_0_#05030d] ${
                 activeControls.down
-                  ? 'border-white/35 bg-white/20 text-white scale-95'
-                  : 'border-white/10 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/20 text-white/70 hover:text-white/90'
+                  ? 'text-[#ffcc00] bg-[#34261a] translate-x-1 translate-y-1 shadow-[1px_1px_0_#05030d]'
+                  : 'text-[#f3e8c8] hover:bg-[#2a2148] hover:text-white'
               }`}
               title="Brake / Slow Down (S / ↓)"
             >
-              <div className={`w-2 h-2 rounded-full mb-0.5 ${activeControls.down ? 'bg-white' : 'bg-white/40'}`} />
-              <span className="text-[8px] font-['Orbitron'] font-bold tracking-wider">
-                BRAKE
-              </span>
+              <Pause size={18} className={activeControls.down ? 'text-[#00eefc]' : 'text-white/75'} />
             </button>
 
             <button
@@ -525,10 +498,10 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
               }}
               onPointerLeave={() => handleDirectionPress('right', false)}
               onPointerCancel={() => handleDirectionPress('right', false)}
-              className={`w-13 h-13 rounded-full flex flex-col items-center justify-center transition-all duration-75 select-none cursor-pointer backdrop-blur-sm border ${
+              className={`w-11 h-11 flex items-center justify-center transition-all duration-75 select-none cursor-pointer border-2 border-[#0a0614] bg-[#1b1534] shadow-[3px_3px_0_#05030d] ${
                 activeControls.right
-                  ? 'border-white/35 bg-white/20 text-white scale-95'
-                  : 'border-white/10 bg-white/[0.06] hover:bg-white/[0.12] hover:border-white/20 text-white/70 hover:text-white/90'
+                  ? 'text-[#ffcc00] bg-[#34261a] translate-x-1 translate-y-1 shadow-[1px_1px_0_#05030d]'
+                  : 'text-[#f3e8c8] hover:bg-[#2a2148] hover:text-white'
               }`}
               title="Turn Right (D / →)"
             >
@@ -537,9 +510,6 @@ export const PlayZoneView: React.FC<PlayZoneViewProps> = ({
                 }
                 className={`stroke-[2.5] ${activeControls.right ? 'text-white' : 'text-white/75'}`}
               />
-              <span className="text-[7.5px] font-['Orbitron'] font-bold tracking-wider -mt-0.5">
-                R
-              </span>
             </button>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import {
-  drawn,
+  drawPixelSun,
   drawPixelPlanet,
   drawPixelLaunchStation,
   drawPixelStarItem,
@@ -320,7 +320,7 @@ export function renderGameScene(
 
   ctx.font = '10px "Press Start 2P", monospace';
   ctx.textAlign = 'center';
-  for (let fIdx = game.floatingScores.length - 1; fIdx >= 0; fIdx--) game.floatingScores.length - 1; fIdx >= 0; fIdx--) {
+  for (let fIdx = game.floatingScores.length - 1; fIdx >= 0; fIdx--) {
     const item = game.floatingScores[fIdx];
     item.life += dt;
     item.y -= 30 * dt;

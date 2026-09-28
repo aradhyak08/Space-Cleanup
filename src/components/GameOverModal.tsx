@@ -25,6 +25,7 @@ export const GameOverModal: React.FC<GameOverModalProps> = ({
   onReturnHome,
 }) => {
   
+  useEffect(() => {
     if (!isOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -41,12 +42,12 @@ export const GameOverModal: React.FC<GameOverModalProps> = ({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onRestart, onReturnHome];
+  }, [isOpen, onRestart, onReturnHome]);
 
   if (!isOpen) return null;
 
   return createPortal(
-    <Divide      
+    <div
       role="dialog"
       aria-modal="true"
       className="fixed inset-0 z-50 flex flex-col items-center justify-center p-6 select-none bg-black/30 backdrop-blur-[2px] animate-fade-in"

@@ -5,7 +5,10 @@ interface MascotShipSvgProps {
   isBoosting?: boolean;
 }
 
-export const MascotShipSvg: React.FC<MascotShipSvgProps> = ({ className, isBoosting }) => assName = 'w-full h-full', isBoosting = false }) => {
+export const MascotShipSvg: React.FC<MascotShipSvgProps> = ({
+  className = 'w-full h-full',
+  isBoosting = false,
+}) => {
   return (
         <svg 
            className={`${className} overflow-visible`}

@@ -1,4 +1,4 @@
- type DifficultyId = 'cadet' | 'pilot' | 'ace' | 'void_legend';
+export type DifficultyId = 'cadet' | 'pilot' | 'ace' | 'void_legend';
 
 export interface DifficultyConfig {
   id: DifficultyId;
