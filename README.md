@@ -10,11 +10,17 @@ It is made with React and TypeScript and runs in a web browser.
 
 ## Screenshots
 
-![Space Cleanup home screen](./Screenshot%202026-09-30%20164133.png)
+**Home screen**
 
-![Space Cleanup game screen](./Screenshot%202026-09-30%20164026.png)
+![Space Cleanup home screen](./screenshots/Screenshot%202026-09-30%20164133.png)
 
-![Space Cleanup blackout on/off screen](./Screenshot%202026-09-30%20164153.png)
+**Game screen**
+
+![Space Cleanup game screen](./screenshots/Screenshot%202026-09-30%20164026.png)
+
+**Blackout on and off screen**
+
+![Space Cleanup blackout on/off screen](./screenshots/Screenshot%202026-09-30%20164153.png)
 
 
 ### Dependencies
